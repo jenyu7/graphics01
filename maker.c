@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main()
+{
+  int fd = open("image.ppm", O_CREAT | O_RDWR, 0644);
+  char msg[256] = "P3\n500 500 \n255\n";
+  write(fd, msg, sizeof(msg));
+  char gradient[2500] = "";
+  int x, y;
+  for (x = 0; x < 500; x ++){
+    for(y = 0; y < 500; y ++){
+      int r, g, b;
+      r = 255 - y/2;
+      g = r;
+      b = 255;
+      char line[32];
+      sprintf(line, "%d %d %d ", r, g, b);
+      printf("%s\n", line);
+      sprintf(gradient, "%s%s", gradient, line);
+    }
+    sprintf(gradient, "%s%s", gradient, "\n");
+    write(fd, gradient, sizeof(gradient));
+    sprintf(gradient, "%s", "");
+  }
+  close(fd);
+
+}
