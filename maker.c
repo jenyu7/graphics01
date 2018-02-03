@@ -18,7 +18,7 @@ int main()
       b = 255;
       char line[32];
       sprintf(line, "%d %d %d ", r, g, b);
-      printf("%s\n", line);
+      //printf("%s\n", line);
       write(fd, line, sizeof(line));
       sprintf(line, "%s", "");
     }
