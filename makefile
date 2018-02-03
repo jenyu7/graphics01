@@ -3,7 +3,6 @@ all: maker.c
 
 run: all
 	./maker
-	display image.ppm &
 
 clean:
 	rm maker
