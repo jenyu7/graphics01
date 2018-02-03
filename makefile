@@ -1,10 +1,8 @@
 all: maker.c
 	gcc -o maker maker.c
-
-run: all
 	./maker
 
-display: run
+display: all
 	display image.ppm &
 
 clean:
