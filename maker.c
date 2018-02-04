@@ -13,9 +13,9 @@ int main()
   for (x = 0; x < 500; x ++){
     for(y = 0; y < 500; y ++){
       int r, g, b;
-      r = 255 - y/2;
-      g = r;
-      b = 255;
+      r = 255;
+      g = b;
+      b = 255 - y/2;
       char line[32];
       sprintf(line, "%d %d %d ", r, g, b);
       //printf("%s\n", line);
